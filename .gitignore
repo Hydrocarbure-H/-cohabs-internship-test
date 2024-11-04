@@ -9,7 +9,7 @@ logs/
 # Temp files
 *.tmp
 *.temp
-
+*.env
 # Coverage directory
 coverage/
 

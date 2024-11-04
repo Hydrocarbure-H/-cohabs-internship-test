@@ -6,5 +6,5 @@ COPY . .
 EXPOSE 3001
 
 # Serve the backend on the 3001 port
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
 
