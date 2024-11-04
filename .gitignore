@@ -1,0 +1,22 @@
+# General files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Temp files
+*.tmp
+*.temp
+
+# Coverage directory
+coverage/
+
+# IDE and editor specific files
+.vscode/
+.idea/
+
+# Node modules (in case there are any at the root level)
+node_modules/
+
