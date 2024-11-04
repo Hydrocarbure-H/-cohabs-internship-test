@@ -11,5 +11,6 @@ exports.generateResponse = (message) => {
         return "Everything about our payments can be found on our website !";
     }
 
+
     return "I don't understand your question, can you be more specific ?";
 };
