@@ -1,5 +1,5 @@
 const axios = require('axios');
-
+const { gpt_prompt } = require('./config/prompt');
 /**
  * Ask ChatGPT a question and get an answer according to the FAQ
  * @param question
@@ -46,14 +46,14 @@ async function askChatGpt(question) {
  * @param message
  * @returns {string}
  */
-exports.generateResponse = (message) => {
-    // Ask ChatGPT a question and await the answer
-   askChatGpt(message)
-        .then((response) => {
-            return response;
-        })
-        .catch((error) => {
-            console.error("Error while generating response :", error.message);
-            return "An error occured while generating the response. Please try again later.";
-        });
+exports.generateResponse = async (message) => {
+    try {
+        // Await the answer from ChatGPT
+        const response = await askChatGpt(message);
+        console.log("Response generated:", response);
+        return response;
+    } catch (error) {
+        console.error("Error while generating response:", error.message);
+        return "An error occurred while generating the response. Please try again later.";
+    }
 };

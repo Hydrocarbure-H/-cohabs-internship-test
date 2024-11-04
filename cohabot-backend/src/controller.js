@@ -7,7 +7,7 @@ const {gpt_max_token_input} = require("./config/dotenv");
  * @param res
  * @returns {*}
  */
-exports.getResponse = (request, res) => {
+exports.getResponse = async (request, res) => {
     const userMessage = request.body.message;
 
     // Check if the message is missing
@@ -20,7 +20,12 @@ exports.getResponse = (request, res) => {
         return res.status(400).json({ error: "Votre message est trop long pour être correctement traité." });
     }
 
-    // Generate the response
-    const response = generateResponse(userMessage);
-    res.json({ response });
+    try {
+        // Generate the response asynchronously
+        const response = await generateResponse(userMessage);
+        res.json({ response });
+    } catch (error) {
+        console.error("Error while generating chatbot response:", error.message);
+        res.status(500).json({ error: "Une erreur est survenue lors de la génération de la réponse. Merci de réessayer plus tard." });
+    }
 };
