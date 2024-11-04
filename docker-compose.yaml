@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./cohabot-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    networks:
+      - cohabot-network
+
+  backend:
+    build:
+      context: ./cohabot-backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    networks:
+      - cohabot-network
+
+networks:
+  cohabot-network:
+    driver: bridge
+
