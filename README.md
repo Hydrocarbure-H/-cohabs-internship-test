@@ -1,2 +1,2 @@
-# -cohabs-internship-test
+# cohabs-internship-test
 Cohabs Internship Test
