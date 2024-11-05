@@ -1,4 +1,3 @@
-// src/components/ChatMessage.js
 import React from 'react';
 
 function Message({message, isUser})
