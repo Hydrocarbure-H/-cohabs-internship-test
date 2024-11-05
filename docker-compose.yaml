@@ -5,10 +5,10 @@ services:
     build:
       context: ./cohabot-frontend
       dockerfile: Dockerfile
-    ports:
-      - "3000:80"
-    networks:
-      - cohabot-network
+    network_mode: "host"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=3000
 
   backend:
     build:
@@ -16,10 +16,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3001:3001"
-    networks:
-      - cohabot-network
 
-networks:
-  cohabot-network:
-    driver: bridge
 
