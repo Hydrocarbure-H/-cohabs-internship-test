@@ -38,7 +38,7 @@ function InputBox({onSend})
         <div className="flex p-4 border-t">
             <input
                 type="text"
-                className="flex-grow p-2 border rounded-lg"
+                className="flex-grow p-2 border rounded-lg md:w-auto w-3/4"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
