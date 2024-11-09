@@ -1,13 +1,20 @@
 const axios = require('axios');
-const {gpt_prompt} = require('./config/prompt');
+const {gpt_prompt_internet, gpt_prompt_local} = require('./config/prompt');
+const prompt_mode = process.env.PROMPT_MODE;
 
 /**
  * Ask ChatGPT a question and get an answer according to the FAQ
  * @param question
+ * @param prompt_mode
  * @returns {Promise<*|string>}
  */
-async function askChatGpt(question)
+async function askChatGpt(question, prompt_mode)
 {
+    let gpt_prompt = gpt_prompt_internet;
+    if (prompt_mode === 'local')
+    {
+        gpt_prompt = gpt_prompt_local;
+    }
     try
     {
         // Call the OpenAI API
@@ -58,7 +65,7 @@ exports.generateResponse = async (message) =>
     try
     {
         // Await the answer from ChatGPT
-        const response = await askChatGpt(message);
+        const response = await askChatGpt(message, prompt_mode);
         // Sleep for 3 seconds
         // await new Promise(resolve => setTimeout(resolve, 3000));
         // const response = "This is a response from the backend. And this is a test message.";
