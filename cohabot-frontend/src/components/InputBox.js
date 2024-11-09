@@ -10,12 +10,27 @@ function InputBox({onSend})
 {
     const [message, setMessage] = useState("");
 
+    /**
+     * Handle sending the message
+     */
     const handleSend = () =>
     {
         if (message.trim())
         {
             onSend(message);
             setMessage("");
+        }
+    };
+
+    /**
+     * Handle the Enter key to send the message
+     * @param e
+     */
+    const handleKeyDown = (e) =>
+    {
+        if (e.key === 'Enter')
+        {
+            handleSend();
         }
     };
 
@@ -26,6 +41,7 @@ function InputBox({onSend})
                 className="flex-grow p-2 border rounded-lg"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                onKeyDown={handleKeyDown}
                 placeholder="Tapez votre message..."
             />
             <button onClick={handleSend} className="p-2 ml-2 bg-blue-500 rounded-lg text-white">
