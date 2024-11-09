@@ -23,12 +23,12 @@ function InputBox({onSend})
         <div className="flex p-4 border-t">
             <input
                 type="text"
-                className="flex-grow p-2 border rounded"
+                className="flex-grow p-2 border rounded-lg"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Tapez votre message..."
             />
-            <button onClick={handleSend} className="p-2 ml-2 bg-blue-500 text-white rounded">
+            <button onClick={handleSend} className="p-2 ml-2 bg-blue-500 rounded-lg text-white">
                 Envoyer
             </button>
         </div>

@@ -7,6 +7,8 @@ function Window()
 {
     // State to store messages
     const [messages, setMessages] = useState([]);
+    // Display an indicator that the bot is typing
+    const [isLoading, setIsLoading] = useState(false);
 
     /**
      * Handle sending a message
@@ -31,6 +33,10 @@ function Window()
         {
             setMessages([...newMessages, {text: "Error : Unable to get a response", isUser: false}]);
         }
+        finally
+        {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -39,6 +45,9 @@ function Window()
                 {messages.map((msg, index) => (
                     <Message key={index} message={msg.text} isUser={msg.isUser}/>
                 ))}
+                {isLoading && (
+                    <div className="text-gray-500 text-sm italic mt-2">Cohabot écrit...</div>
+                )}
             </div>
             <InputBox onSend={handleSendMessage}/>
         </div>
