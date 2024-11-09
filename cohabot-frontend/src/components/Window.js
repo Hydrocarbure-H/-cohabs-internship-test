@@ -57,7 +57,7 @@ function Window()
 
     return (
         <div
-            className="flex flex-col min-h-[15rem] max-h-[calc(100vh-6rem)] p-4 border-0 rounded-2xl bg-white">
+            className="flex flex-col min-h-[30rem] max-h-[calc(100vh-6rem)] p-4 border-0 rounded-2xl bg-white">
             <div className="flex flex-col flex-grow overflow-y-auto">
                 {messages.map((msg, index) => (
                     <Message key={index} message={msg.text} isUser={msg.isUser}/>

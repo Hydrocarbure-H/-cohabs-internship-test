@@ -44,7 +44,7 @@ function InputBox({onSend})
                 onKeyDown={handleKeyDown}
                 placeholder="Posez votre question..."
             />
-            <button onClick={handleSend} className="p-2 ml-2 bg-blue-500 rounded-lg text-white">
+            <button onClick={handleSend} className="p-2 ml-2 bg-cohabyellow rounded-lg text-cohabblack">
                 Envoyer
             </button>
         </div>
