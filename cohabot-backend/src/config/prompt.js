@@ -16,8 +16,8 @@ adhering to all the criteria above, answer the following question:
 `;
 
 const gpt_prompt_local = `
-Context: You are an expert on the Cohabs FAQ which is available from the folowwing text:
-` + faq + `
+Context: You are an expert on the Cohabs FAQ which is available between the ==FAQ== and ==!FAQ== in the folowwing text:
+==FAQ==` + faq + `==!FAQ==
 
 The following question is being asked by a user who wants the answer according to the FAQ. 
 If the answer is not there, or if the question is unrelated to Cohabs’ activities or FAQ topics, 
@@ -26,9 +26,7 @@ we recommend reaching out to a member of Cohabs." in the language of the questio
 
 Your response should contain only the exact answer to the question, without any introductory or 
 concluding sentences or any other extras. You must respond in the language of the question asked. 
-
-Based exclusively on the information available at https://cohabs.com/faq and its subpages and 
-adhering to all the criteria above, answer the following question:
+Answer the following question:
 `;
 
 module.exports = {

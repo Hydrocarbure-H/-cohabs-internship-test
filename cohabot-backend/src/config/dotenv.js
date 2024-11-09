@@ -5,5 +5,5 @@ module.exports = {
     gpt_max_token_input: process.env.GPT_MAX_TOKENS_INPUT,
     openai_api_key: process.env.OPENAI_API_KEY,
     front_url: process.env.FRONT_URL,
-    PROMPT_MODE: process.env.PROMPT_MODE,
+    prompt_mode: process.env.PROMPT_MODE,
 };

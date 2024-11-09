@@ -1,6 +1,6 @@
 const axios = require('axios');
 const {gpt_prompt_internet, gpt_prompt_local} = require('./config/prompt');
-const prompt_mode = process.env.PROMPT_MODE;
+const {prompt_mode} = require('./config/dotenv');
 
 /**
  * Ask ChatGPT a question and get an answer according to the FAQ
@@ -11,17 +11,19 @@ const prompt_mode = process.env.PROMPT_MODE;
 async function askChatGpt(question, prompt_mode)
 {
     let gpt_prompt = gpt_prompt_internet;
+
     if (prompt_mode === 'local')
     {
         gpt_prompt = gpt_prompt_local;
     }
+    
     try
     {
         // Call the OpenAI API
         const response = await axios.post(
             'https://api.openai.com/v1/chat/completions',
             {
-                model: 'gpt-4',
+                model: 'gpt-4o',
                 messages: [
                     {
                         role: 'user',
