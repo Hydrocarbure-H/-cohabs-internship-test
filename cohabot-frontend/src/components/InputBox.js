@@ -42,7 +42,7 @@ function InputBox({onSend})
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Tapez votre message..."
+                placeholder="Posez votre question..."
             />
             <button onClick={handleSend} className="p-2 ml-2 bg-blue-500 rounded-lg text-white">
                 Envoyer
