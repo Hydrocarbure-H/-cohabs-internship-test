@@ -23,6 +23,9 @@ function Window()
         const newMessages = [...messages, {text: userMessage, isUser: true}];
         setMessages(newMessages);
 
+        // Display the loading indicator
+        setIsLoading(true);
+
         // Send the message to the backend on /api/chat/new
         try
         {
@@ -46,7 +49,7 @@ function Window()
                     <Message key={index} message={msg.text} isUser={msg.isUser}/>
                 ))}
                 {isLoading && (
-                    <div className="text-gray-500 text-sm italic mt-2">Cohabot écrit...</div>
+                    <div className="text-gray-500 text-md italic mt-2">Cohabot écrit...</div>
                 )}
             </div>
             <InputBox onSend={handleSendMessage}/>
