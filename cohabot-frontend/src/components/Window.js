@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Message from './Message';
 import InputBox from './InputBox';
 import axios from 'axios';
@@ -9,6 +9,8 @@ function Window()
     const [messages, setMessages] = useState([]);
     // Display an indicator that the bot is typing
     const [isLoading, setIsLoading] = useState(false);
+    // Reference to the last message
+    const messagesEndRef = useRef(null);
 
     /**
      * Handle sending a message
@@ -42,8 +44,19 @@ function Window()
         }
     };
 
+    /**
+     * Reference to the last message to scroll to it
+     */
+    useEffect(() =>
+    {
+        if (messagesEndRef.current)
+        {
+            messagesEndRef.current.scrollIntoView({behavior: "smooth"});
+        }
+    }, [messages]);
+
     return (
-        <div className="flex flex-col h-full p-4 border rounded-lg bg-white">
+        <div className="flex flex-col h-screen p-4 border rounded-lg bg-white">
             <div className="flex flex-col flex-grow overflow-y-auto">
                 {messages.map((msg, index) => (
                     <Message key={index} message={msg.text} isUser={msg.isUser}/>
@@ -51,6 +64,7 @@ function Window()
                 {isLoading && (
                     <div className="text-gray-500 text-md italic mt-2">Cohabot écrit...</div>
                 )}
+                <div ref={messagesEndRef}/>
             </div>
             <InputBox onSend={handleSendMessage}/>
         </div>
