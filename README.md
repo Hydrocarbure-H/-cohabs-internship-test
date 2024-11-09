@@ -82,3 +82,6 @@ Implementing colors according to the Cohabs design. Adding the ability for the u
 and the bot will not answer them.
 ![image](https://github.com/user-attachments/assets/b8b8bd51-6f92-4b33-a04b-2449941d1030)
 
+### Multilingual support
+
+![image](https://github.com/user-attachments/assets/d9bd9d57-c598-4a00-8957-5628e17163b3)
