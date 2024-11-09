@@ -58,10 +58,10 @@ exports.generateResponse = async (message) =>
     try
     {
         // Await the answer from ChatGPT
-        //const response = await askChatGpt(message);
+        const response = await askChatGpt(message);
         // Sleep for 3 seconds
-        await new Promise(resolve => setTimeout(resolve, 3000));
-        const response = "This is a response from the backend. And this is a test message.";
+        // await new Promise(resolve => setTimeout(resolve, 3000));
+        // const response = "This is a response from the backend. And this is a test message.";
         console.log("Response generated:", response);
         return response;
     }
