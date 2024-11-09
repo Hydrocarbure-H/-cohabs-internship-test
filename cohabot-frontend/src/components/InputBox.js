@@ -42,10 +42,10 @@ function InputBox({onSend})
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Posez votre question..."
+                placeholder="Ask anything..."
             />
             <button onClick={handleSend} className="p-2 ml-2 bg-cohabyellow rounded-lg text-cohabblack">
-                Envoyer
+                Send
             </button>
         </div>
     );
