@@ -16,7 +16,7 @@ async function askChatGpt(question, prompt_mode)
     {
         gpt_prompt = gpt_prompt_local;
     }
-    
+
     try
     {
         // Call the OpenAI API
@@ -72,6 +72,8 @@ exports.generateResponse = async (message) =>
         // await new Promise(resolve => setTimeout(resolve, 3000));
         // const response = "This is a response from the backend. And this is a test message.";
         console.log("Response generated:", response);
+
+        // If "string" in the response, prepare a call api to a slack webhook
         return response;
     }
     catch (error)
