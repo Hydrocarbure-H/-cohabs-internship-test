@@ -1,19 +1,13 @@
-version: '3.8'
-
 services:
   frontend:
     build:
       context: ./cohabot-frontend
-      dockerfile: Dockerfile
-    network_mode: "host"
-    environment:
-      - HOST=0.0.0.0
-      - PORT=3000
+    ports:
+      - "3000:3000"
 
   backend:
     build:
       context: ./cohabot-backend
-      dockerfile: Dockerfile
     ports:
       - "3001:3001"
 
