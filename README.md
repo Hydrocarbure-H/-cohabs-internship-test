@@ -22,11 +22,44 @@ automatically responding in the language in which the question is asked.
 - **Multilingual Support**: Cohabot automatically detects the language of the question and responds in the same
   language, without any additional settings required. It supports seamless multilingual interactions.
 
-## Usage & Deployment
+## How to Run the Project
 
-TODO: Add instructions on how to use and deploy the application.
-Currently, the application does not allow switching between the two modes through the user interface. Mode selection is
-handled at the backend level, but this may change in future updates to make mode selection available to end users.
+### Prerequisites
+
+- **Docker**: Make sure Docker is installed and running on your machine.
+- **Environment Variables**: Set up the required environment variables in a `.env` file in the root directory of the backend.
+
+### Environment Variables
+
+Create a `.env` file in the backend directory (`cohabot-backend`) with the following content:
+
+```plaintext
+PORT=3001
+GPT_MAX_TOKENS_INPUT=100
+OPENAI_API_KEY=your-openai-key
+FRONT_URL=http://localhost:3000
+PROMPT_MODE=local # or 'internet'. see Features section below. local == precise mode, internet == general mode
+```
+
+### Running the Project
+
+1. **Clone the Repository**: Make sure you have cloned the repository and are in the project’s root directory.
+
+2. **Build and Run with Docker Compose**:
+   Run the following command to build and start the containers for both frontend and backend:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   This command will:
+    - Build the frontend and backend images from the Dockerfiles in their respective directories (`cohabot-frontend` and `cohabot-backend`).
+    - Expose the frontend on `http://localhost:3000` and the backend on `http://localhost:3001`.
+
+3. **Access the Application**:
+    - **Frontend**: Open [http://localhost:3000](http://localhost:3000) in your browser.
+    - **Backend**: The backend API is accessible at [http://localhost:3001](http://localhost:3001).
+
 
 ## Cost Comparison
 
@@ -48,21 +81,6 @@ To help visualize the difference:
 
 Using the GPT-4 pricing structure, you can estimate the cost difference between these two modes depending on usage and
 token consumption.
-
-## Installation
-
-1. Clone this repository.
-2. Install the necessary dependencies:
-   ```bash
-   npm install
-   ```
-3. Configure your OpenAI API key in the environment file.
-4. Start the application:
-   ```bash
-   npm start
-   ```
-
---- 
 
 # History in screenshots
 
